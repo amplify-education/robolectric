@@ -9,6 +9,7 @@ import com.xtremelabs.robolectric.internal.Implements;
 @Implements(ValueAnimator.class)
 public class ShadowValueAnimator extends ShadowAnimator {
     private TimeInterpolator interpolator;
+    private int repeatCount;
 
     @Implementation
     public void setInterpolator(TimeInterpolator value) {
@@ -27,5 +28,15 @@ public class ShadowValueAnimator extends ShadowAnimator {
     @Implementation
     public static ValueAnimator ofInt (int... values){
     	return new ValueAnimator();
+    }
+
+    @Implementation
+    public void setRepeatCount(int repeatCount) {
+        this.repeatCount = repeatCount;
+    }
+
+    @Implementation
+    public int getRepeatCount() {
+        return repeatCount;
     }
 }
