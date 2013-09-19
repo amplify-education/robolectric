@@ -181,8 +181,8 @@ public class TestFragmentManager extends FragmentManager {
         fragment.onStart();
     }
 
-    public HashMap<Integer, Fragment> getFragments() {
-        return new HashMap<Integer, Fragment>(fragmentsById);
+    public List<Fragment> getFragments() {
+        return new ArrayList<Fragment>(fragmentsById.values());
     }
 
     public List<TestFragmentTransaction> getCommittedTransactions() {
